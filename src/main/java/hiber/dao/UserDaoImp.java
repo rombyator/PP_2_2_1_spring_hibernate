@@ -32,7 +32,7 @@ public class UserDaoImp implements UserDao {
     public User getUserByCar(Car car) {
         TypedQuery<User> query = sessionFactory
             .getCurrentSession()
-            .createQuery("from User u where u.car.model = :model and u.car.series = :series")
+            .createQuery("from User as user where user.car.model = :model and user.car.series = :series")
             .setParameter("model", car.getModel())
             .setParameter("series", car.getSeries());
 
